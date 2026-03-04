@@ -1,0 +1,59 @@
+<div class="card shadow mb-4">
+
+    <div class="card-header bg-primary text-white">
+        Detalle de Producto
+    </div>
+
+    <div class="card-body">
+
+        <input type="hidden" id="txtIdProducto">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <label>Nombre del Producto</label>
+                <input type="text" class="form-control" id="txtNombreProducto">
+            </div>
+
+            <div class="col-md-3">
+                <label>Categoría</label>
+                <select class="form-control" id="cmbCategoria"></select>
+            </div>
+
+            <div class="col-md-3">
+                <label>Precio</label>
+                <input type="number" class="form-control" id="txtPrecioProducto">
+            </div>
+
+        </div>
+
+        <div class="mt-3">
+            <button class="btn btn-primary" onclick="guardarProducto()">Guardar</button>
+            <button class="btn btn-danger" onclick="eliminarProducto()">Eliminar</button>
+            <button class="btn btn-success" onclick="nuevoProducto()">Nuevo</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card shadow">
+    <div class="card-header bg-secondary text-white">
+        Catálogo de Productos
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Estatus</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbodyProductos"></tbody>
+        </table>
+    </div>
+</div>

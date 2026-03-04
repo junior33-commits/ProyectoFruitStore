@@ -1,0 +1,89 @@
+<div class="card shadow mb-4 mt-4">
+    <div class="card-header bg-primary text-white">
+        Detalle de Proveedor
+    </div>
+
+    <div class="card-body">
+
+        <input type="hidden" id="txtIdProveedor">
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>Nombre</label>
+                <input type="text" class="form-control" id="txtNombreProveedor">
+            </div>
+
+            <div class="col-md-4">
+                <label>Razón Social</label>
+                <input type="text" class="form-control" id="txtRazonSocial">
+            </div>
+
+            <div class="col-md-4">
+                <label>RFC</label>
+                <input type="text" class="form-control" id="txtRFC">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <label>Dirección</label>
+                <input type="text" class="form-control" id="txtDireccion">
+            </div>
+
+            <div class="col-md-3">
+                <label>Teléfono Fijo</label>
+                <input type="text" class="form-control" id="txtTelefonoFijo">
+            </div>
+
+            <div class="col-md-3">
+                <label>Teléfono Móvil</label>
+                <input type="text" class="form-control" id="txtTelefonoMovil">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <label>Email</label>
+                <input type="email" class="form-control" id="txtEmailProveedor">
+            </div>
+
+            <div class="col-md-6">
+                <label>Estatus</label>
+                <select class="form-control" id="cmbEstatusProveedor">
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <button class="btn btn-primary" onclick="guardarProveedor()">Guardar</button>
+            <button class="btn btn-danger" onclick="eliminarProveedor()">Eliminar</button>
+            <button class="btn btn-success" onclick="nuevoProveedor()">Nuevo</button>
+        </div>
+
+    </div>
+</div>
+<div class="card shadow">
+    <div class="card-header bg-secondary text-white">
+        Lista de Proveedores
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Razón Social</th>
+                    <th>RFC</th>
+                    <th>Email</th>
+                    <th>Teléfonos</th>
+                    <th>Estatus</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tblProveedores"></tbody>
+        </table>
+    </div>
+</div>

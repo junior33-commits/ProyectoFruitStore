@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Principal</title>
+    <link rel="stylesheet" href="../style/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../style/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../style/bootstrap/css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="../style/sweetalert2/sweetalert2.min.css">
+   
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand">Fruit Store</span>
+
+        <div>
+            <button class="btn btn-outline-light"
+                onclick="cargarModuloProducto()">
+                Profucto
+            </button>
+            
+
+            <button class="btn btn-outline-light"
+                onclick="cargarModuloCategoria()">
+               Categorias
+            </button>
+
+            <button class="btn btn-outline-light"
+                onclick="cargarModuloVentas()">
+                ventas
+            </button>
+            <button class="btn btn-outline-light"
+                onclick="cargarModuloProvedores()">
+               Provedores
+            </button>
+            <button class="btn btn-outline-light"
+                onclick="cargarModuloVendedore()">
+               vendedores
+            </button>
+
+            <button class="btn btn-danger"
+                onclick="logout()">
+                Cerrar sesión
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div id="divPrincipal" class="container-fluid">
+            
+        </div>
+    
+<script src="../style/sweetalert2/sweetalert2.all.min.js"></script>
+<script type="module" src="../js/principal.js"></script>
+</body>
+</html>
