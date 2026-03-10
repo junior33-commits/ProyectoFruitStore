@@ -18,7 +18,7 @@ function inicializar() {
 }
 async function cargarModuloProvedores() {
     
-    let url = "Provedores.html"; 
+    let url = "Proveedor.html"; 
     
     let resp = await fetch(url);
     let contenido = await resp.text();
