@@ -25,6 +25,8 @@ async function cargarModuloProvedores() {
     document.getElementById("divPrincipal").innerHTML = contenido;
     
     inicializar(); 
+    let modulo = await import("./proveedor.js");
+    modulo.inicializarModulo();
 }
 window.cargarModuloProvedores = cargarModuloProvedores;
 

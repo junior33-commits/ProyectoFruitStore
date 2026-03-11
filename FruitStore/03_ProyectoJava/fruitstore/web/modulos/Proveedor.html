@@ -1,87 +1,81 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title>FruitStore - Proveedores</title>
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../style/style.css" type="text/css">
-    <link rel="stylesheet" href="../style/sweetalert2/sweetalert2.min.css">
-</head>
-<body>
-    <div class="container mt-4">
-        <div class="card p-4 mb-4 shadow-sm">
-            <h3>Detalle de Proveedor</h3>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label">Nombre Comercial</label>
-                    <input id="txtNombre" type="text" class="form-control" placeholder="Nombre del contacto o empresa">
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Razón Social</label>
-                    <input id="txtRazonSocial" type="text" class="form-control" placeholder="Nombre legal">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">RFC</label>
-                    <input id="txtRfc" type="text" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Teléfono Móvil</label>
-                    <input id="txtTelMovil" type="text" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Email</label>
-                    <input id="txtEmail" type="email" class="form-control">
-                </div>
-                <div class="col-md-12">
-                    <label class="form-label">Dirección</label>
-                    <input id="txtDireccion" type="text" class="form-control">
-                </div>
+<div class="card shadow mb-4">
+    <div class="card-header bg-primary text-white">
+        Detalle de Proveedor
+    </div>
+    <div class="card-body">
+        <input type="hidden" id="txtIdProveedor">
+
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="txtNombreProveedor">
             </div>
-            
-            <div class="mt-3 text-center">
-                <button class="btn btn-primary" onclick="guardar()">💾 Guardar</button>
-                <button class="btn btn-danger" onclick="eliminar()">🗑️ Eliminar</button>
-                <button class="btn btn-success" onclick="limpiar()">✨ Nuevo</button>
+            <div class="col-md-4">
+                <label class="form-label">Razón Social</label>
+                <input type="text" class="form-control" id="txtRazonSocial">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">RFC</label>
+                <input type="text" class="form-control" id="txtRFC">
             </div>
         </div>
 
-        <div class="card p-4 shadow-sm">
-            <h3>Listado de Proveedores</h3>
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Razón Social</th>
-                            <th>RFC</th>
-                            <th>Teléfono</th>
-                            <th>Estatus</th>
-                            <th class="text-center">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbodyProveedores">
-                        </tbody>
-                </table>
+        <div class="row g-3 mt-2">
+            <div class="col-md-6">
+                <label class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="txtDireccion">
             </div>
+            <div class="col-md-3">
+                <label class="form-label">Teléfono Fijo</label>
+                <input type="text" class="form-control" id="txtTelefonoFijo">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Teléfono Móvil</label>
+                <input type="text" class="form-control" id="txtTelefonoMovil">
+            </div>
+        </div>
+
+        <div class="row g-3 mt-2">
+            <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="txtEmailProveedor">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Estatus</label>
+                <select class="form-control" id="cmbEstatusProveedor">
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <button class="btn btn-primary" onclick="guardarProveedor()">Guardar</button>
+            <button class="btn btn-danger" onclick="eliminarProveedor()">Eliminar</button>
+            <button class="btn btn-success" onclick="limpiar()">Nuevo</button>
         </div>
     </div>
+</div>
 
-    <script src="../style/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="../js/fruitstore_sec.js"></script>
-    <script src="../style/bootstrap/js/bootstrap.bundle.min.js"></script> 
-    <script type="module">
-        import { inicializarModulo } from '../js/proveedor.js';
-        
-        document.addEventListener("DOMContentLoaded", () => {
-            inicializarModulo();
-        });
-    </script>
-    <script>
-        if (!validarSesion()) {
-            document.body.style.display = "none";
-        }
-    </script>
-    <script type="module" src="../js/proveedor.js"></script>
-</body>
-</html>
+<div class="card shadow">
+    <div class="card-header bg-secondary text-white">
+        Lista de Proveedores
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Razón Social</th>
+                        <th>RFC</th>
+                        <th>Teléfono</th>
+                        <th>Estatus</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyProveedores"></tbody>
+            </table>
+        </div>
+    </div>
+</div>

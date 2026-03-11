@@ -36,26 +36,19 @@ public class RESTProveedor {
     }
     
     @Path("getAll")
-@GET
-@Produces(MediaType.APPLICATION_JSON)
-public Response getAll(@QueryParam("filtro") @DefaultValue("") String filtro) {
-    try {
-        ControllerProveedor cp = new ControllerProveedor();
-        List<Proveedor> proveedores = cp.getAll(filtro);
-
-        if (proveedores == null) {
-            proveedores = new ArrayList<>();
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAll(@QueryParam("filtro") @DefaultValue("") String filtro) {
+        String out = "";
+        try {
+            ControllerProveedor cp = new ControllerProveedor();
+            List<Proveedor> lista = cp.getAll(filtro);
+            out = new Gson().toJson(lista);
+        } catch (Exception e) {
+            out = "{\"exception\":\"" + e.toString() + "\"}";
         }
-
-        return Response.ok(proveedores).build();
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        return Response.serverError()
-                .entity("{\"exception\":\"Error real en servidor\"}")
-                .build();
+        return Response.ok(out).build();
     }
-}
     
     @Path("delete")
     @POST
