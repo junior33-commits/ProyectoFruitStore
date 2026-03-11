@@ -35,8 +35,8 @@ async function cargarModuloVendedore() {
     let resp = await fetch(url);
     let contenido = await resp.text();
     document.getElementById("divPrincipal").innerHTML = contenido;
-    
-    inicializar(); 
+    cm = await import("./vendedor.js");
+    await cm.inicializarModulos();
 }
 window.cargarModuloVendedore = cargarModuloVendedore;
 

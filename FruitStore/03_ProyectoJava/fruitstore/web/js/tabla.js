@@ -4,6 +4,7 @@ let categorias = [];
 export async function inicializarModulos() {
     await consultarCategorias();
     await consultarProductos();
+    await consultarVendedores();
 }
 
 /* ================= PRODUCTOS ================= */

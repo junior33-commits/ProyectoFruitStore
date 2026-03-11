@@ -56,4 +56,100 @@ public class ControllerVendedor
         v.setTelefono(rs.getString("telefono"));
         return v;
     }
+    //Se hace el método Insert para agregar nuevo vendedor 
+    public int insert(Vendedor v) throws Exception{
+        String sql = """
+                     INSERT INTO vendedor(nombre, fechaNac, genero, calle, numExt, numInt, colonia, cp, ciudad,
+                              estado, pais, telefono, fechaAlta, email, estatus)
+                             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                     """;
+        ConexionMySQL connMySQL = new ConexionMySQL();
+        Connection conn = connMySQL.open();
+        
+        PreparedStatement pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+        pstmt.setString(1, v.getNombre());
+        pstmt.setString(2, v.getFechaNacimiento());
+        pstmt.setString(3, v.getGenero());
+        pstmt.setString(4, v.getCalle());
+        pstmt.setString(5, v.getNumExt());
+        pstmt.setString(6, v.getNumInt());
+        pstmt.setString(7, v.getColonia());
+        pstmt.setString(8, v.getCp());
+        pstmt.setString(9, v.getCiudad());
+        pstmt.setString(10, v.getEstado());
+        pstmt.setString(11, v.getPais());
+        pstmt.setString(12, v.getTelefono());
+        pstmt.setString(13, v.getFechaAlta());
+        pstmt.setString(14, v.getEmail());
+        pstmt.setInt(15, v.getEstatus());
+        
+        pstmt.executeUpdate();
+        ResultSet rs = pstmt.getGeneratedKeys();
+        if(rs.next())
+            v.setId(rs.getInt(1));
+        rs.close();
+        pstmt.close();
+        conn.close();
+        return v.getId();
+    }
+    
+    public void update(Vendedor v) throws Exception{
+        String sql = """
+        UPDATE vendedor SET
+        nombre=?,
+        fechaNac=?,
+        genero=?,
+        calle=?,
+        numExt=?,
+        numInt=?,
+        colonia=?,
+        cp=?,
+        ciudad=?,
+        estado=?,
+        pais=?,
+        telefono=?,
+        fechaAlta=?,
+        email=?,
+        estatus=?
+        WHERE idVendedor=?
+        """;
+        ConexionMySQL connMySQL = new ConexionMySQL();
+        Connection conn = connMySQL.open();
+        
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, v.getNombre());
+            pstmt.setString(2, v.getFechaNacimiento());
+            pstmt.setString(3, v.getGenero());
+            pstmt.setString(4, v.getCalle());
+            pstmt.setString(5, v.getNumExt());
+            pstmt.setString(6, v.getNumInt());
+            pstmt.setString(7, v.getColonia());
+            pstmt.setString(8, v.getCp());
+            pstmt.setString(9, v.getCiudad());
+            pstmt.setString(10, v.getEstado());
+            pstmt.setString(11, v.getPais());
+            pstmt.setString(12, v.getTelefono());
+            pstmt.setString(13, v.getFechaAlta());
+            pstmt.setString(14, v.getEmail());
+            pstmt.setInt(15, v.getEstatus());
+
+            pstmt.setInt(16, v.getId());
+            pstmt.executeUpdate();
+        
+        pstmt.close();
+        conn.close();
+    }
+    
+    public void delete(int id) throws Exception{
+        String sql = "UPDATE vendedor SET estatus=0 WHERE idVendedor=?";
+        ConexionMySQL connMySQL = new ConexionMySQL();
+        Connection conn = connMySQL.open();
+        
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, id);
+        pstmt.executeUpdate();
+        
+        pstmt.close();
+        conn.close();
+    }
 }
