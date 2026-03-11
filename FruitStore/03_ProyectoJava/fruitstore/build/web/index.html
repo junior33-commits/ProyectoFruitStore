@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login - FruitStore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap-grid.css">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap-utilities.css">
+        <link rel="stylesheet" href="style/sweetalert2/sweetalert2.min.css">
+        <link rel="stylesheet" href="style/estilo.css" type="text/css">
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-6">
+
+                    <div class="card mt-5 shadow">
+                        <div class="card-header text-center bg-dark text-white">
+                            <h2>Inicio de Sesión - FruitStore</h2>
+                        </div>
+
+                        <div class="card-body">
+
+                             <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input id="txtNombre" name="nombre" type="text" class="form-control" placeholder="Usuario">
+                                            <label>Nombre de Usuario</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input id="txtContrasenia" name="contrasenia" type="password" class="form-control" placeholder="Contraseña">
+                                            <label>Contraseña</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-4">
+                                    <div class="col-12 text-center">
+                                        <button onclick="login();" class="btn btn-outline-dark btn-lg">
+                                            Iniciar Sesión
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-12">
+                                        <div id="divMensaje"></div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <p class="text-center text-muted mt-3">
+                        FruitStore © 2026
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        
+        <script src="style/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script  src="style/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="js/fruitstore_sec.js"></script>
+        
+    </body>
+</html>
